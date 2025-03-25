@@ -1,0 +1,270 @@
+body{
+    font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header p {
+    font-size: 20px;
+}
+.list{
+    display: flex;
+}
+li{
+    list-style: none;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.titular{
+    text-align: center;
+    margin-top: 200px;
+}
+.t1{/* headline M&D INGENIERIA */
+    font-size: 60px; 
+    margin: 0;
+}
+.t2{/*headline Tecnologia y soluciones*/
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+.b1{/*button Ver trabajos*/
+    font-size: 18px;
+    background: rgba(86, 102, 250, 0.979);
+    padding: 20px 30px 20px 30px;
+    color: white;
+}
+header{
+    background: url(../image/back.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+.container{/*container of the entire first page*/
+    max-width: 1280px;
+    width: 90%;
+    margin: auto;
+}
+.menu_icon{
+    display: none;
+}
+/*ABOUT US*/
+h3{
+    text-align: center;
+    font-size: 55px;
+    font-weight: normal;
+}  
+.about_us_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.b2{/*button Ver trabajos about us*/
+    font-size: 18px;
+    background: rgba(69, 86, 236, 0.979);
+    padding: 18px 28px 18px 28px;
+    color: white;
+    margin-top: 20px;
+    display: inline-block;
+}
+.about_us_paragraph_button{
+    width: 40%;
+}
+.about_us_paragraph_button p{
+    font-size: 18px;
+}
+/*SERVICES*/
+.systems{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.system{
+    width: 32%;
+    padding: 20px;
+    border-radius: 51px;
+    margin-bottom: 44px;
+}
+.blue{
+    background: rgb(111, 122, 216);;
+}
+.white{
+    background: rgb(238, 230, 230);
+}
+.system h4{
+    font-size: 30px;
+    margin: 0%;
+}
+.system img{
+    float: right;
+}
+.system p{
+    font-size: 16px;
+    height: 190px;
+}
+/*WORKS
+span{
+    font-size: 80px;
+    color: blue;
+}
+.owl-nav{
+    text-align: center;
+}*/
+/*WORK WITH US*/
+.work_with_us{
+    max-width: 1281px;
+    width: 90%;
+    margin: auto;
+}
+.why{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+.why h4{
+    margin: 0%;
+}
+.why p{
+    font-size: 18px;
+    line-height: 30px;
+}
+.why1{
+    width: 22%;
+}
+/*Contact*/
+.cont_container{
+    max-width: 1281px;
+    width: 90%;
+    margin: auto;
+}
+.info{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+.text{
+    text-align: center;
+}
+.info1{
+    width: 30%;
+    padding: 30px;
+}
+.net{
+    display: block;
+    padding-bottom: 20px;
+}
+/*WHATSAPP*/
+.whatsapp a{
+    position: fixed;
+    top: 85%;
+    right: 2%;
+}
+/*responsive design*/
+@media(max-width: 450px){/*/*this code only phones*/
+    nav{
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        background: rgba(69, 86, 236, 0.554);
+        width: 100%;
+        display: none;
+
+
+    }
+    nav .list{
+        flex-direction: column;
+        display: flex;
+    }
+    .menu_icon{
+        display: block;
+        width: 25px;
+    }
+    .titular{
+        margin-top: 150px;
+    }
+    .t1{
+        font-size: 35px;
+    }
+    h2{
+        font-size: 10px;
+    }
+    /*about us*/
+    .about_us_container{
+        flex-direction: column;
+    }
+    .about_us_paragraph_button {
+        width: 85%;
+        margin: auto;
+    }
+    /*services*/
+    .systems{
+        flex-direction: column;
+    }
+    .system{
+        width: 83%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    /*WHY*/
+    .why{
+        flex-direction: column;
+    }
+    .why1 {
+        width: 99%;
+    }
+      /*contact*/
+    .info{
+        flex-direction: column;
+        margin: auto;
+    }
+    .info1 {
+        width: 85%;
+        padding: 30px;
+    }
+    .info img{
+        max-width: 93%;
+    }
+    .cont_container h3{
+        font-size: 40px;
+    }
+  
+    /*services*/
+}
+@media(min-width: 700px) and (max-width:1200px){
+    header{
+        height: 100vh;  
+    }
+    .menu_icon{
+        display: block;
+        width: 25px;
+    }
+    nav .list{
+        flex-direction: column;
+        display: flex;
+    }
+    nav{
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        background: rgba(69, 86, 236, 0.554);
+        width: 100%;
+        display: none;
+    }
+    .info1 {
+        width: 41%;
+        padding: 30px;
+    }
+    .info img{
+        max-width: 90%;
+    }
+    .system{
+        width: 39%;
+    }
+
+}
