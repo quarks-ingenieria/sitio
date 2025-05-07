@@ -1,628 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chava - Servicios Técnicos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: white;
-        }
-
-        /* Barra de navegación */
-        .nav-bar {
-            background-color: #000000;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            font-family: 'Comfortaa', cursive;
-            z-index: 1001;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        /* Menú Hamburguesa */
-        .menu-icon {
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            z-index: 1001;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 70%;
-            height: 100%;
-            background-color: #00256f;
-            transition: 0.3s;
-            z-index: 999;
-            padding: 2rem;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 1rem 0;
-            font-size: 1.1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .close-menu {
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin-bottom: 1rem;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 998;
-            display: none;
-        }
-
-        /* Sección de servicios */
-        .servicios {
-            padding: 4rem 2rem;
-            background-color: #f0f4f8;
-        }
-
-        .servicio-titulo {
-            text-align: center;
-            margin: 0rem 0rem 2rem 0rem; /* Añadido margen vertical */
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .servicio-card {
-            background-color: white;
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid #00256f;
-            overflow: hidden;
-        }
-
-        /* Nuevos estilos para subservicios */
-        .servicio-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        .subservicios {
-            display: none;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .servicio-card.active .subservicios {
-            display: block;
-        }
-
-        .subservicio {
-            background-color: rgba(0, 37, 111, 0.05);
-            margin: 0.5rem 0;
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .subservicio:hover {
-            background-color: rgba(0, 37, 111, 0.1);
-            transform: translateX(5px);
-        }
-
-        .subservicio button {
-            background-color: #00256f;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .subservicio button:hover {
-            background-color: #001a4a;
-        }
-
-        .servicio-card.active {
-            background-color: #00256f;
-            color: white;
-        }
-
-        .servicio-card.active .subservicio {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Sobre Nosotros */
-        .sobre-nosotros {
-            padding: 4rem 2rem;
-            background-color: #00256f;
-            color: white;
-            text-align: center;
-        }
-
-        /* Redes Sociales */
-        .redes-sociales {
-            padding: 4rem 2rem;
-            background-color: white;
-            text-align: center;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #00256f;
-            text-decoration: none;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+    <head>
+        <meta charset="UTF8">
+        <title>Quarks ingeniería</title>
+        <link rel="shortcut icon" href="image/icon/logo_size_invert.png">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="owl/owl.carousel.min.css">
+        <link rel="stylesheet" href="owl/owl.theme.default.min.css">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <!--hidden water mark-->
+        <style> 
+            .disclaimer{
+                visibility:hidden;
             }
-            
-            .menu-icon {
-                display: block;
-            }
-            
-            .servicios-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .mobile-menu {
-                width: 250px;
-            }
-
-            /* Alineación texto sobre nosotros */
-            .sobre-nosotros p {
-                text-align: left;
-                /*padding: 0 1rem;*/
-            }
-
-            /* Ajustes redes sociales */
-            .social-item span {
-                display: none;
-            }
-
-
-            .social-icons {
-                gap: 1.5rem;
-                row-gap: 2rem;
-            }
-
-            .social-item {
-                flex: 0 0 30%;
-                justify-content: center;
-            }
-        }
-
-        /* Nuevo icono TikTok 
-        .fa-tiktok {
-            font-size: 1.2em;
-            vertical-align: middle;
-        }*/
-          /* Modal personalizado */
-          .custom-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 10000;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
-            padding: 2rem;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .modal-textarea {
-            width: 100%;
-            height: 150px;
-            margin: 1rem 0;
-            padding: 1rem;
-            border: 2px solid #00256f;
-            border-radius: 8px;
-            resize: vertical;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
-
-        .modal-button {
-            padding: 0.5rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .modal-send {
-            background-color: #00256f;
-            color: white;
-        }
-
-        .modal-cancel {
-            background-color: #cccccc;
-        }
-    </style>
-</head>
-<body>
-    <nav class="nav-bar">
-        <div class="logo">CHAVA</div>
-        <i class="menu-icon fas fa-bars"></i>
-        <div class="nav-links">
-            <a href="#servicios">Servicios</a>
-            <a href="#nosotros">Sobre Nosotros</a>
-            <a href="#redes">Síguenos</a>
-        </div>
-    </nav>
-
-    <!-- Menú móvil -->
-    <div class="mobile-menu">
-        <i class="close-menu fas fa-times" onclick="closeMenu()"></i>
-        <a href="#servicios" onclick="closeMenu()">Servicios</a>
-        <a href="#nosotros" onclick="closeMenu()">Sobre Nosotros</a>
-        <a href="#redes" onclick="closeMenu()">Síguenos</a>
-    </div>
-    <div class="overlay" onclick="closeMenu()"></div>
-
-    <section class="servicios" id="servicios">
-        <div class="servicio-titulo">
-            <h2>¿Que servicios necesita?</h2>
-        </div>
-        <div class="servicios-grid">
-            <!-- Servicio de Electricidad -->
-            <div class="servicio-card" onclick="toggleDetails(this)">
-                <div class="servicio-header">
-                    <h2>Electricidad</h2>
-                    <i class="fas fa-bolt"></i>
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container"><!-- container of the entire first page  -->
+                <div class="top"> 
+                    <p class="name">QUARKS INGENIERíA</p>
+                    <img class="menu_icon" src="image/icon/menu.png" alt="">
+                    <nav>
+                    <ul class="list">
+                        <li><a href="#abt_us">Sobre Nosotros</a></li>
+                        <li><a href="#serv">Servicios</a></li>
+                        <li><a href="#worjkwu">¿Por que trabajar con nosotros?</a></li>
+                        <li><a href="#contact">Contactanos</a></li>
+                    </ul>  
+                    </nav>
                 </div>
-                <div class="subservicios">
-                    <div class="subservicio">
-                        <span>Cortocircuito</span>
-                        <div>
-                            <button onclick="solicitarServicio('Electricidad - Cortocircuito')">Solicitar</button>
-                        </div>
+                <div class="titular">
+                    <h1 class="t1">QUARKS INGENIERIA</h1><!-- headline M&D INGENIERIA  -->
+                    <h2 class="t2">Tecnologia y soluciones</h2><!-- headline Tecnologia y soluciones  -->
+                    <a class="b1" href="#contact" target="">Escribenos</a><!-- button Vertrabajos  -->
+                </div>
+            </div>
+        </header>
+        <!-- ABOUT US -->
+        <section id="abt_us" class="about_us">
+            <h3>Sobre Nosotros</h3>
+            <div class="about_us_container">
+                <img src="image/about_us.jpg" alt="M&D INGENIERIA" title="M&D INGENIERIA">
+                <div class="about_us_paragraph_button">
+                    <p>
+                        Nos dedicamos a brindar soluciones reales y efectivas en diversas áreas, 
+                        tales como ser Videovigilancia, control de acceso, alarmas, detección de incendios, 
+                        riego automático en áreas verdes o jardines en oficinas, casas particulares y en condominios. 
+                    </p>
+                    <p>  
+                        Proporcionar seguridad, confianza y comfort es nuestro principal compromiso con usted para el 
+                        progreso de su negocio y el bienestar en su hogar.
+                    </p> 
+                    <a class="b2" href="#contact">contacto</a> <!-- button Vertrabajos about us -->
+                </div>
+            </div>
+        </section>
+        <section id="serv" class="services">
+            
+                <h3>Servicios</h3>
+                <div class="systems">
+                    <div class="system ac blue">
+                        <h4>Control de Acceso</h4>
+                        <p>
+                            Acceso autorizado a personal seleccionado a determinadas áreas de un edificio, 
+                            casa, condominio o negocio, mediante tarjetas o llaveros RFID, reconocimiento de 
+                            huellas dactilares, reconocimiento facial y contraseñas.
+                            Facilita el control de ingreso de trabajadores e una empresa y brinda seguridad en hogares.
+                        </p>
+                        <img src="image/icon/ac.png" alt="">
                     </div>
-                    <div class="subservicio">
-                        <span>Ducha eléctrica</span>
-                        <div>
-                            <button onclick="solicitarServicio('Electricidad - Ducha eléctrica')">Solicitar</button>
-                        </div>
+                    <div class="system cctv white">
+                        <h4>Video Vigilancia</h4>
+                        <p>
+                            Sistemas de Circuito Cerrados de Television para la supervision centralizada o desde cualquier lugar 
+                            del mundo de diversos ambientes en edificios, condominios y hogares. Control de eventos, horarios, 
+                            seguimiento de movimiento y alarmas en caso de pérdida de señal. 
+                        </p>
+                        <img class="cctvpic" src="image/icon/cctv.png" alt="">
                     </div>
-                    <div class="subservicio">
-                        <span>Tomas/focos dañados</span>
-                        <div>
-                            <button onclick="solicitarServicio('Electricidad - Tomas/focos dañados')">Solicitar</button>
-                        </div>
+                    <div class="system di white">
+                        <h4>Detección de Incendios</h4>
+                        <p>
+                            Paneles centralizados en edificios para controlar y programar los dispositivos pertenecientes al 
+                            sistema de combate contra incendios. Detección de humo, sirenas y jaladores en casos de emergencia..
+                        </p>
+                        <img src="image/icon/di.png" alt="">
                     </div>
-                    <div class="subservicio">
-                        <span>Otros</span>
-                        <div>
-                            <button onclick="solicitarServicio('Electricidad - Otros')">Solicitar</button>
-                        </div>
+                    <div class="system sr blue">
+                        <h4>Sistema de Riego</h4>
+                        <p>
+                            Implementación de sistemas de riego automático en jardines, áreas verdes o patios en oficinas, 
+                            condominios o casas particulares. Puedes controlar el riego mediante la implementacion de horarios o 
+                            situaciones climatológicas.
+                        </p>
+                        <img src="image/icon/sr.png" alt="">
+                    </div>
+                    <div class="system dm white">
+                        <h4>Domotica</h4>
+                        <p>
+                            Implementación de sistemas inteligentes de Iluminación en tu hogar u edificio mediante sensores 
+                            de movimiento, horarios y eventos, activación desde un computador central o desde tu celular.
+                            Control de apertura y cierre de tu garaje. 
+                            Control inteligente de persianas.
+                        </p>
+                        <img src="image/icon/domo.png" alt="">
+                    </div>
+                </div>  
+        </section>
+        <!--work
+        <section id="worksi" class="works">
+            <div class="works_container">
+                <h3>Mis Trabajos</h3>
+                <div class="owl-carousel">
+                    <div><img src="../image/1work.jpg" alt=""></div>
+                    <div><img src="../image/2work.jpg" alt=""></div>
+                    <div><img src="../image/3work.jpg" alt=""></div>
+                    <div><img src="../image/4work.jpg" alt=""></div>
+                    <div><img src="../image/5work.jpg" alt=""></div>
+                </div>
+            </div>
+        </section>-->
+        <section id="worjkwu" class="work_with_us">
+            <div class="work_with_us_container">
+                <h3>¿Por que trabajar con nosotros?</h3>
+                <div class="why">
+                    <div class="why1 security">
+                        <img src="image/icon/security.png" alt="">
+                        <h4>Seguridad</h4>
+                        <p>
+                            Tendrá la certeza de contar con una buena instalación, 
+                            y precisión a la hora de contratar cualquiera de nuestros servicios. 
+                            Trabajamos para que su hogar o empresa cuente con toda la seguridad y 
+                            tranquilidad que se merece.
+                        </p>
+                    </div>
+                    <div class="why1 maintenance">
+                        <img src="image/icon/maintenance.png" alt="">
+                        <h4>Mantenimiento</h4>
+                        <p>
+                            Facilidad a la hora de realizar los mantenimientos de cualquier 
+                            sistemas y también tendrá la opción de programarlos para el mejor 
+                            desempeño del mismo, de igual forma con precios acordes a su medida.
+                        </p>
+                    </div>
+                    <div class="why1 innovation">
+                        <img src="image/icon/innovation.png" alt="">
+                        <h4>Innovación</h4>
+                        <p>
+                            Contamos con las mejores tecnologías en el mercado actual, para brindar 
+                            un mejor servicio, de igual manera tener una buena calidad y facilidad para 
+                            poder integrar sistemas si lo desea, así tener un mejor desempeño y aprovechamiento del 
+                            mismo.
+                        </p>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <section  id="contact">
+            <div class="cont_container">
+                <h3>CONTACTAMOS</h3>
+                <div class="info">
+                    <div class="info1 text">
+                        <img src="image/atentionn.jpg" alt="">
+                        <p>
+                            Puedes Comunicarte con nosotros para obtener más información, 
+                            o cotizar algún servicio si desea sin ningún compromiso.
+                        </p>
+                    </div>
+                    <div class="info1 cont">
+                        <p><a href="mailto:quarksingenieria@outlook.com">E-mail: quarksingenieria@outlook.com</a></p>
+                        <a class="net" target="_blank" href="https://api.whatsapp.com/send/?phone=59178449644">Telefono: +591 78449644</a>
+                        <a class="net" target="_blank" href="https://www.facebook.com/Quarks-Ingenier%C3%ADa-101379292521612/">Facebook</a>
+                        <a class="net" target="_blank" href="https://api.whatsapp.com/send/?phone=59178449644">Whatsapp</a>
+                        <a class="net" target="_blank" href="https://www.tiktok.com/@quarksingenieria">TikTok</a>
+                        <a class="net" target="_blank" href="https://www.instagram.com/quarksingenieria/">Instagram</a>
+                        <p>Santa Cruz - Bolivia</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Servicio de Plomería -->
-            <div class="servicio-card" onclick="toggleDetails(this)">
-                <div class="servicio-header">
-                    <h2>Plomería</h2>
-                    <i class="fas fa-faucet"></i>
-                </div>
-                <div class="subservicios">
-                    <div class="subservicio">
-                        <span>Goteras en los grifos</span>
-                        <div>
-                            <button onclick="solicitarServicio('Plomería - Goteras en los grifos')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                        <span>Lavavajillas o lavamanos tapados</span>
-                        <div>
-                            <button onclick="solicitarServicio('Plomería - Lavavajillas o lavamanos tapados')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                        <span>Fugas en las cañerías</span>
-                        <div>
-                            <button onclick="solicitarServicio('Plomería - Fugas en las cañerías')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                        <span>Otros</span>
-                        <div>
-                            <button onclick="solicitarServicio('Plomería - Otros')">Solicitar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Servicio de Reparación -->
-            <div class="servicio-card" onclick="toggleDetails(this)">
-                <div class="servicio-header">
-                    <h2>Reparación de Electrodomésticos</h2>
-                    <i class="fas fa-tools"></i>
-                </div>
-                <div class="subservicios">
-                    <div class="subservicio">
-                        <span>lavadoras</span>
-                        <div>
-                            <button onclick="solicitarServicio('Reparación - Lavadoras')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                        <span>Refrigeradores</span>
-                        <div>
-                            <button onclick="solicitarServicio('Reparación - Refrigeradores')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                        <span>Aire acondicionado</span>
-                        <div>
-                            <button onclick="solicitarServicio('Reparación - Aire acondicionado')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                        <span>Freezer</span>
-                        <div>
-                            <button onclick="solicitarServicio('Reparación - Freezer')">Solicitar</button>
-                        </div>
-                    </div>
-                    <div class="subservicio">
-                            <span>Otros</span>
-                        <div>
-                            <button type="button" onclick="solicitarServicio('Reparación - Otros')">Solicitar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- Modal para Otros -->
-        <div class="custom-modal" id="otrosModal">
-            <div class="modal-content">
-                <h3>Describe tu problema</h3>
-                <textarea class="modal-textarea" placeholder="Escribe aquí los detalles de tu problema..." id="problemaDesc"></textarea>
-                <div class="modal-buttons">
-                    <button class="modal-button modal-cancel" onclick="cerrarModal()">Cancelar</button>
-                    <button class="modal-button modal-send" onclick="enviarDescripcion()">Enviar</button>
-                </div>
-            </div>
-        </div>
-
-    <section class="sobre-nosotros" id="nosotros">
-        <h2>¿Por qué elegirnos?</h2>
-        <p style="max-width: 800px; margin: 2rem auto; line-height: 1.6;">
-            En CHAVA nos dedicamos a conectar técnicos altamente calificados con personas que necesitan soluciones rápidas y confiables. 
-            Somos tu mejor opción para resolver problemas de electricidad, plomería y reparación de electrodomésticos con 
-            profesionalismo y eficiencia. Nuestro compromiso es brindar un servicio seguro, oportuno y con garantía, 
-            asegurando que cada solución supere tus expectativas. ¡Confía en los expertos!
-        </p>
-    </section>
-
-    <section class="redes-sociales" id="redes">
-        <h2 style="color: #00256f;">Síguenos</h2>
-        <div class="social-icons">
-            <a target="_blank" href="https://www.facebook.com/profile.php?id=61573985127494" class="social-item">
-                <i class="fab fa-facebook fa-2x"></i>
-                <span>Facebook</span>
+        </section>
+        <section class="whatsapp">
+            <a href="https://api.whatsapp.com/send/?phone=59178449644" target="_blank">
+                <img src="image/icon/whatsapp.png" alt="">
             </a>
-            <a target="_blank" href="https://www.instagram.com/chava.szc?igsh=MWpxb3F6NGdqbGx0bg== " class="social-item">
-                <i class="fab fa-instagram fa-2x"></i>
-                <span>Instagram</span>
-            </a>
-            <a target="_blank" href="https://www.tiktok.com/@chava.szc" class="social-item">
-                <i class="fab fa-tiktok fa-2x"></i>
-                <span>TikTok  </span>
-            </a>
-            <a href="" class="social-item">
-                <i class="fab fa-twitter fa-2x"></i>
-                <span>Twitter</span>
-            </a>
-            <a href="" class="social-item">
-                <i class="fab fa-linkedin fa-2x"></i>
-                <span>LinkedIn</span>
-            </a>
-            <a href="mailto:chava.szc@outlook.com" class="social-item">
-                <i class="fas fa-envelope fa-2x"></i>
-                <span>Correo</span>
-            </a>
-        </div>
-    </section>
-
-    <script>
-        // Funcionalidad del menú móvil
-        const menuIcon = document.querySelector('.menu-icon');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const overlay = document.querySelector('.overlay');
-
-        menuIcon.addEventListener('click', () => {
-             mobileMenu.classList.toggle('active');
-             overlay.style.display = mobileMenu.classList.contains('active') ? 'block' : 'none';
-        });
-
-        function closeMenu() {
-            mobileMenu.classList.remove('active');
-            overlay.style.display = 'none';
-        } 
-
-        // Función para mostrar/ocultar detalles
-        function toggleDetails(card) {
-            const allCards = document.querySelectorAll('.servicio-card');
-            allCards.forEach(c => {
-                if(c !== card) c.classList.remove('active');
-            });
-            card.classList.toggle('active');
-        }
-
-        // Función para solicitar subservicio
-        function solicitarServicio(subservicio) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    const ubicacion = `https://www.google.com/maps?q=${lat},${lon}`;
-                    const mensaje = `¡Hola! Quiero solicitar el servicio: ${subservicio}\nMi ubicación: ${ubicacion}`;
-                    window.open(`https://wa.me/59172620639?text=${encodeURIComponent(mensaje)}`, '_blank');
-                }, error => {
-                    alert("No se pudo obtener la ubicación. Asegúrate de permitir el acceso a la ubicación.");
-                    const mensaje = `¡Hola! Quiero solicitar el servicio: ${subservicio}`;
-                    window.open(`https://wa.me/59172620639?text=${encodeURIComponent(mensaje)}`, '_blank');
-                });
-            } else {
-                alert("Tu navegador no soporta la geolocalización.");
-                const mensaje = `¡Hola! Quiero solicitar el servicio: ${subservicio}`;
-                window.open(`https://wa.me/59172620639?text=${encodeURIComponent(mensaje)}`, '_blank');
-            }
-        }
-        // Variables para el modal
-        let servicioActual = '';
-        const modal = document.getElementById('otrosModal');
-        const descripcion = document.getElementById('problemaDesc');
-
-        // Función modificada para manejar "Otros"
-        function solicitarServicio(subservicio) {
-            if (subservicio.includes('Otros')) {
-                servicioActual = subservicio;
-                modal.style.display = 'block';
-            } else {
-                enviarWhatsApp(subservicio);
-            }
-        }
-
-        function cerrarModal() {
-            modal.style.display = 'none';
-            descripcion.value = '';
-            servicioActual = '';
-        }
-
-        function enviarDescripcion() {
-            if (descripcion.value.trim() === '') {
-                alert('Por favor describe tu problema antes de enviar');
-                return;
-            }
-            
-            const mensajeCompleto = `${servicioActual}\nDescripción del problema: ${descripcion.value.trim()}`;
-            enviarWhatsApp(mensajeCompleto);
-            cerrarModal();
-        }
-        
-        function enviarWhatsApp(mensaje) {
-    // Primero obtener la ubicación
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-                const ubicacion = `https://www.google.com/maps?q=${lat},${lon}`;
-                const mensajeFinal = `${mensaje}\nMi ubicación: ${ubicacion}`;
-                // Redirección solo después de obtener la ubicación
-                setTimeout(() => {
-                    window.location.href = `https://wa.me/59172620639?text=${encodeURIComponent(mensajeFinal)}`;
-                }, 100); // Pequeño delay para asegurar la ejecución
-            },
-            error => {
-                // Si hay error en geolocalización
-                const mensajeFinal = `${mensaje}\n(No se pudo obtener ubicación)`;
-                setTimeout(() => {
-                    window.location.href = `https://wa.me/59172620639?text=${encodeURIComponent(mensajeFinal)}`;
-                }, 100);
-            },
-            {
-                enableHighAccuracy: true, // Mejor precisión
-                timeout: 5000, // Máximo 5 segundos para obtener ubicación
-                maximumAge: 0 // No usar caché
-            }
-        );
-    } else {
-        // Si el navegador no soporta geolocalización
-        const mensajeFinal = `${mensaje}\n(Geolocalización no soportada)`;
-        setTimeout(() => {
-            window.location.href = `https://wa.me/59172620639?text=${encodeURIComponent(mensajeFinal)}`;
-        }, 100);
-    }
-}
-        
-
-       
-    </script>
-</body>
+        </section>
+        <script src="owl/jquery.min.js"></script>
+        <script src="owl/owl.carousel.min.js"></script>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:3
+                    },
+                    1000:{
+                        items:4
+                    }
+                }
+            })
+            $('.menu_icon').click(function(){
+                $('header nav').slideToggle();
+            })
+        </script>
+    </body>
 </html>
